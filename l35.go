@@ -1,10 +1,11 @@
 package main
+
 func searchInsert(nums []int, target int) int {
-	for i:=0;i<len(nums);i++{
-		if nums[i]==target{
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == target {
 			return i
 		} else {
-			if nums[i]>target {
+			if nums[i] > target {
 				return i
 			}
 		}
@@ -12,5 +13,5 @@ func searchInsert(nums []int, target int) int {
 	return len(nums)
 }
 func main() {
-	println(searchInsert([]int{1,3,5,6},2))
+	println(searchInsert([]int{1, 3, 5, 6}, 2))
 }

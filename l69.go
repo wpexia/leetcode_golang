@@ -1,30 +1,30 @@
 package main
 
 func mySqrt(x int) int {
-    result := 0
-    for true {
-    	if result*result > x {
-    		return result - 1
-    	} else {
-    		result += 1
-    	}
-    }
-    return result-1
+	result := 0
+	for true {
+		if result*result > x {
+			return result - 1
+		} else {
+			result += 1
+		}
+	}
+	return result - 1
 }
 
 func mySqrt1(x int) int {
-	if x<2 {
+	if x < 2 {
 		return x
 	}
 	left := 0
-	right := x/2
+	right := x / 2
 	for true {
 		if left == right {
 			return left
 		}
-		temp := (left + right +1)/2
+		temp := (left + right + 1) / 2
 		if temp*temp > x {
-			right = temp -1
+			right = temp - 1
 		} else {
 			left = temp
 		}
@@ -33,5 +33,5 @@ func mySqrt1(x int) int {
 }
 
 func main() {
-	print(mySqrt1(9))	
+	print(mySqrt1(9))
 }

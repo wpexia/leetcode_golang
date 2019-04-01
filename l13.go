@@ -23,7 +23,7 @@ func romanToInt(s string) int {
 	}
 	result := 0
 	for i := 0; i < len(s); {
-		if i<len(s) -1 {
+		if i < len(s)-1 {
 			flag := false
 			for key, value := range values1 {
 				if s[i:i+2] == key {

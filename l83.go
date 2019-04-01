@@ -1,12 +1,12 @@
-
+package main
 
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 func deleteDuplicates(head *ListNode) *ListNode {
-	if head==nil {
+	if head == nil {
 		return nil
 	}
 	temp := head.Next
@@ -14,7 +14,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	for temp != nil {
 		if temp.Val != last.Val {
 			last.Next = temp
-			last= temp
+			last = temp
 		}
 		temp = temp.Next
 	}

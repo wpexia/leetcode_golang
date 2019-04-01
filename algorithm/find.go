@@ -1,4 +1,4 @@
-package main
+package algotithm
 
 //Find 二分查找
 func Find(nums []int, left int, right int, target int) int {
