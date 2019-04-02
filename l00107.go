@@ -17,7 +17,7 @@ func orderBottom(point *TreeNode,length int, ans *[][]int) {
 	(*ans)[length] = append((*ans)[length],point.Val)
 	orderBottom(point.Left, length+1, ans)
 	orderBottom(point.Right, length+1, ans)
-} 
+}
 
 func levelOrderBottom(root *TreeNode) [][]int {
 	var ans [][]int
