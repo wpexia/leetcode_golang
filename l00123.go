@@ -6,22 +6,29 @@ func maxProfit(prices []int) int {
 	if lenPrices<2 {
 		return 0
 	}
-	result := make([][]int,lenPrices+1)
-	result[lenPrices] = []int{0,0,0}
-	result[lenPrices-1] = []int{0,0,0}
+	lastResult :=[3]int{0,0,0}
+	tempMax := [3]int{0,0,0}
 	maxResult:=0
-	for i:= lenPrices-2;i>=0;i--{
-		result[i] = []int{0,0,0}
-		for j:=0;j<2;j++ {
-			max := result[i+1][j]
-			for k:=i+1;k<lenPrices;k++{
-				if result[k+1][j+1]+prices[k]-prices[i]>max {
-					max = result[k+1][j+1]+prices[k]-prices[i]
+	for i:= lenPrices-1;i>=0;i--{
+		for j:=0;j<3;j++ {
+			if j == 2{
+				if prices[i]>tempMax[j] {
+					tempMax[j] = prices[i]
 				}
+				continue
 			}
-			result[i][j] = max
+			max := lastResult[j]
+			if tempMax[j+1]-prices[i] > max{
+				max = tempMax[j+1]-prices[i]
+			}
 			if max> maxResult {
 				maxResult = max
+			}
+			if lastResult[j]+ prices[i]>tempMax[j]{
+				tempMax[j] = lastResult[j]+ prices[i]
+			}
+			if max>lastResult[j]{
+				lastResult[j] = max
 			}
 		}
 	}
@@ -30,5 +37,5 @@ func maxProfit(prices []int) int {
 
 
 func main(){
-	println(maxProfit([]int{1,2,3,4,5}))
+	println(maxProfit([]int{6,1,3,2,4,7}))
 }
